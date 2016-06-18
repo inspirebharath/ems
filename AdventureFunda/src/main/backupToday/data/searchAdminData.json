@@ -1,0 +1,55 @@
+{
+  "adminData": [
+        {
+          "userName": "satish",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": true,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        },
+         {
+          "userName": "Bharath",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": true,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }, {
+          "userName": "Pallavi",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": false,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }, {
+          "userName": "Abhi",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": true,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }, {
+          "userName": "Ambarish",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": true,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }, {
+          "userName": "satish",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": false,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }, {
+          "userName": "satish",
+          "lastLogin": "date",
+          "status": "active",
+          "isActive": true,
+          "KitCatalogNumber": "",
+          "MRPCode": ""
+        }
+  ]
+}

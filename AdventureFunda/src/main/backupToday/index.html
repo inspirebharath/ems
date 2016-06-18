@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="climb_admin">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Admin Home</title>
+<link rel="stylesheet" href="assets/libs/Bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/libs/Bootstrap/bootstrap-slider.css" />
+<link rel="stylesheet" href="assets/libs/Angular/angular-datepicker.css" />
+<!-- MetisMenu CSS -->
+    <link href="assets/libs/metisMenu/metisMenu.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/libs/style.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="assets/libs/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="styles/adminHome.css" />
+</head>
+<body>
+<header></header>
+	<div class="row rowMainPrimary">
+	
+	<div id="ErrorModal" class="modal fade" role="dialog" ng-controller="ErrorPopupController" >
+  		<div class="modal-dialog">
+		   <!-- Modal content-->
+		   <div class="modal-content">
+		     <div class="modal-header">
+		       <button type="button" class="close" data-dismiss="modal">&times;</button>
+		       <h4 class="modal-title">Error</h4>
+		     </div>
+		     <div class="modal-body" style="padding: 0px;" >
+		     {{errorMessage}}
+				</div>
+		       <button type="button" class="btn btn-default" data-dismiss="modal" >Ok</button>
+<!-- 		       <button type="button" class="btn btn-default" data-dismiss="modal" >No</button> -->
+    		</div>
+  		</div>
+	</div>
+
+		<left-menu ></left-menu>
+		<div class="col-sm-9 setElemRight">
+			<ng-view></ng-view>
+		</div>
+	</div>
+
+	<script src="assets/libs/Angular/angular.min.js"></script>
+	<script src="assets/libs/Angular/angular-route.min.js"></script>
+	<script src="assets/libs/Angular/dirPagination.js" ></script>
+	<script src="assets/libs/Angular/translate.js"></script>
+	<script src="assets/libs/JQuery/jquery.min.js"></script>
+	<script src="assets/libs/Bootstrap/bootstrap.min.js"></script>
+	<script src="assets/libs/Bootstrap/bootstrap-slider.js"></script>
+	<script src="assets/libs/Angular/angular-datepicker.js"></script>
+	<script src="assets/libs/Bootstrap/slider.js"></script>
+    <script src="assets/libs/Bootstrap/accordin.js"></script>
+    <script src="assets/libs/Bootstrap/collapse.js"></script>
+	
+	<!-- Metis Menu Plugin JavaScript - used in side bar nav -->
+    <script src="assets/libs/metisMenu/metisMenu.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="assets/libs/raphael/raphael.js"></script>
+
+	<script src="app.js"></script>
+	<script src="js/common-lib.js"></script>
+	<script src="login.js"></script>
+	
+	<script src="services/translations.js"></script>
+	<script src="services/util.js"></script>
+	<script src="services/adminPortalService.js"></script>
+	
+	<script src="directives/header.js"></script>
+	<script src="directives/leftMenu.js"></script>
+	<script src="directives/fileUpload.js"></script>
+	<script src="directives/setRole.js"></script>
+	
+	<script src="controllers/events.js"></script>
+	<script src="controllers/manageAdminController.js"></script>
+	<script src="controllers/eventsGalleryController.js"></script>
+    <script src="controllers/patnerCreate.js"></script>
+    <script src="controllers/userProfileController.js"></script>
+    <script src="controllers/dashboardController.js"></script>
+    <script src="controllers/eventsSearch.js"></script>
+	<script src="controllers/fileUpload.js"></script>
+	<script src="controllers/partnerSearch.js"></script>
+	<script src="controllers/ErrorPopupController.js"></script>
+	
+</body>
+</html>

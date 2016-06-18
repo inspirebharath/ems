@@ -1,0 +1,348 @@
+<div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Events Management</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<div class="panel-group" id="accordion" role="tablist"
+		aria-multiselectable="true">
+		<div class="panel panel-default panel-gray">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion"
+						href="javascript:" aria-expanded="true"
+						aria-controls="basicDetails" ng-click="isOpenBasic = !isOpenBasic" > Basic Details </a>
+				</h4>
+			</div>
+			<div id="basicDetails" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenBasic" >
+			<div class="panel-body">
+			<div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventName'}}</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.eventName" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventType'}}</label>
+								<select class="inputWidth" ng-model="$parent.eventType"><option>Trek</option>
+									<option>Expedition</option>
+								</select>
+								<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventStartDate'}}</label>
+                                            <datepicker date-format="dd/MM/yyyy"> <input
+					ng-model="$parent.eventStartDate" type="text" class="inputWidth" /> </datepicker>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventEndDate'}}</label>
+                                            <datepicker date-format="dd/MM/yyyy"> <input
+					ng-model="$parent.eventEndDate" type="text" class="inputWidth" /> </datepicker>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Short Description</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.shortDesc" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventNoOfBatches'}}</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.NoOfBatches" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventCost'}}</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.eventCost" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Country</label>
+                                            <select type="text" class="inputWidth" ng-model="$parent.eventCountry" >
+                                            <option>India</option>
+                                            </select>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-4">
+                                       <div class="form-group">
+                                            <label translate>State</label>
+                                            <select type="text" class="inputWidth" ng-model="$parent.eventState" >
+                                            <option>India</option>
+                                            </select>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>City</label>
+                                            <select type="text" class="inputWidth" ng-model="$parent.eventCity" >
+                                            <option>India</option>
+                                            </select>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+<!--                                     <div class="col-lg-4"> -->
+<!--                                         <div class="form-group"> -->
+<!--                                             <label translate>Payment LastDate</label> -->
+<!--                                             <datepicker date-format="dd/MM/yyyy"> <input -->
+<!-- 					ng-model="$parent.eventpaymentLastDate" type="text" class="inputWidth" /> </datepicker> -->
+<!-- <!--                                             <select type="text" class="inputWidth" ng-model="$parent.eventpaymentLastDate" > --> -->
+<!-- <!--                                             <option>India</option> --> 
+<!-- <!--                                             </select> --> 
+<!-- <!--                                             <p class="help-block">Merchant Identification Number</p> --> 
+<!--                                         </div> -->
+<!--                                     </div> -->
+                                     <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Event Location</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.eventLocation" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Zip Code</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.eventLocZip" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventMaxPart'}}</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.Max_No_part" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventMinPart'}}</label>
+                                            <input type="text" class="inputWidth" ng-model="$parent.Min_No_part" />
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventPayDate'}}</label>
+                                            <datepicker date-format="dd/MM/yyyy"> <input
+					ng-model="$parent.payLastDate" type="text" class="inputWidth" /> </datepicker>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventDiffGrade'}}</label>
+                                            <slider ng-model="$parent.diffGrade" min="testOptions.min"
+					step="testOptions.step" max="testOptions.max"
+					value="testOptions.value"></slider>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>{{'MeventFitLevel'}}</label>
+                                            <slider ng-model="$parent.fitnessLevel" min="testOptions.min"
+					step="testOptions.step" max="testOptions.max"
+					value="testOptions.value"></slider>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="row">
+                                    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label translate>Event Primary Image</label>
+                                            <input type="file" file-upload ng-model="$parent.primaryImage" data-entityType="EVENTS" 
+                                           data-entityOperation="create" 
+                                           data-imageType="PRIMARY_PHOTO"/>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                        	 <img class="filePreview" ng-src="{{$parent.eventImage}}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="form-group">
+                                            <label translate>Supporting Images</label>
+                                            <input type="file" multiple file-upload ng-model="$parent.sceondaryImage" data-entityType="EVENTS" 
+                                           data-entityOperation="create" 
+                                           data-imageType="SECONDARY_PHOTOS"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                    	<div ng-repeat="item in $parent.secImages">
+                                        	 <img class="filePreview" ng-src="{{item}}" />
+                                       	</div>
+                                        </div>
+                                    </div>
+							</div>
+			</div>
+		</div>
+	</div>
+<!-- 	<div class="panel-group" id="accordion" role="tablist" -->
+<!-- 		aria-multiselectable="true"> -->
+<!-- 		<div class="panel panel-default panel-gray"> -->
+<!-- 			<div class="panel-heading" role="tab" id="headingOne"> -->
+<!-- 				<h4 class="panel-title"> -->
+<!-- 					<a role="button" data-toggle="collapse" data-parent="#accordion" -->
+<!-- 						href="javascript:" aria-expanded="true" -->
+<!-- 						aria-controls="basicDetails" ng-click="isOpenAdv = !isOpenAdv" > Organizer Details </a> -->
+<!-- 				</h4> -->
+<!-- 			</div> -->
+<!-- 			<div id="basicDetails" class="panel-collapse collapse in" -->
+<!-- 				role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenOrg" > -->
+<!-- 			<div class="panel-body"> -->
+<!-- 			<div class="row"> -->
+			
+<!-- 			</div> -->
+<!-- 			</div> -->
+<!-- 			</div> -->
+<!-- 			</div> -->
+<!-- 			</div> -->
+			
+    <div class="panel-group" id="accordion" role="tablist"
+		aria-multiselectable="true">
+		<div class="panel panel-default panel-gray">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion"
+						href="javascript:" aria-expanded="true"
+						aria-controls="basicDetails" ng-click="isOpenAdv = !isOpenAdv" > Advanced Details </a>
+				</h4>
+			</div>
+			<div id="basicDetails" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenAdv" >
+			<div class="panel-body">
+			<div class="row">
+			<div class="col-lg-4">
+                                        <div class="form-group">
+<!--                                            <div class="col-sm-12"> -->
+                						<label translate>Synopsis</label>
+                						<textarea  class="form-control" ng-model="$parent.eventSynopsis" rows="3" ></textarea>
+<!-- 			</div> -->
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>About Organizer</label>
+                						<textarea  class="form-control" ng-model="$parent.eventOrganiDetail" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Itenrary</label>
+                						<textarea  class="form-control" ng-model="$parent.eventItenrary" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Safety and Preparation</label>
+                						<textarea  class="form-control" ng-model="$parent.eventSafety" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Personal Items to carry</label>
+                						<textarea  class="form-control" ng-model="$parent.eventItems" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>FAQ</label>
+                						<textarea  class="form-control" ng-model="$parent.eventFAQ" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label translate>Terms and conditions</label>
+                						<textarea  class="form-control" ng-model="$parent.eventTC" rows="3" ></textarea>
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+<!-- 		<h3> -->
+<!-- 			<span>Basic Information</span> -->
+<!-- 		</h3> -->
+		
+
+
+		<div class="row">
+			<div class="col-sm-offset-8 col-md-4">
+				<div class="row">
+					<div class="col-md-6">
+						<button type="reset" class="btn btn-warning form-control">Reset</button>
+					</div>
+					<div class="col-md-6">
+						<button type="submit" class="btn btn-success form-control" ng-click="submitEventData()" >Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 	<div class="container" ng-if="pageFlag == 'search'"> -->
+
+	<!-- 		<div class="panel-group" id="accordion"> -->
+	<!-- 			<div class="panel panel-default"> -->
+	<!-- 				<div class="panel-heading"> -->
+	<!-- 					<h4 class="panel-title"> -->
+	<!-- 						<a data-toggle="collapse" data-parent="#accordion" -->
+	<!-- 							href="#collapse1">EXPLORE WILD LIFE AT WESTERN GHATS</a> -->
+	<!-- 					</h4> -->
+	<!-- 				</div> -->
+	<!-- 				<div id="collapse1" class="panel-collapse collapse in"> -->
+	<!-- 					<div class="panel-body">Description and other details</div> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="panel panel-default"> -->
+	<!-- 				<div class="panel-heading"> -->
+	<!-- 					<h4 class="panel-title"> -->
+	<!-- 						<a data-toggle="collapse" data-parent="#accordion" -->
+	<!-- 							href="#collapse2">Har Ki Dun Trek (Uttarakhand)</a> -->
+	<!-- 					</h4> -->
+	<!-- 				</div> -->
+	<!-- 				<div id="collapse2" class="panel-collapse collapse"> -->
+	<!-- 					<div class="panel-body">Description and other details</div> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="panel panel-default"> -->
+	<!-- 				<div class="panel-heading"> -->
+	<!-- 					<h4 class="panel-title"> -->
+	<!-- 						<a data-toggle="collapse" data-parent="#accordion" -->
+	<!-- 							href="#collapse3">EXPLORE WILD LIFE AT WESTERN GHATS</a> -->
+	<!-- 					</h4> -->
+	<!-- 				</div> -->
+	<!-- 				<div id="collapse3" class="panel-collapse collapse"> -->
+	<!-- 					<div class="panel-body">Description and other details</div> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+</div>

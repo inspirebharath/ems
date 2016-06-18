@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-4.1.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+        http://www.springframework.org/schema/oxm 
+        http://www.springframework.org/schema/oxm/spring-oxm-4.1.xsd
+        http://www.springframework.org/schema/jee 
+        http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
+		http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd ">
+
+	<!-- <jee:jndi-lookup id="emsAppSysConfigId"
+		jndi-name="java:comp/env/java/emsAppSysConfig" resource-ref="true" />
+
+	bean declaration to read properties file
+	<bean id="emsAppProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" ref="emsAppSysConfigId" />
+	</bean> -->
+
+	<bean id="propertyConfigurers" class="com.ems.user.util.Properties">
+		<property name="locations">
+			<list>
+				<value>classpath:ems-config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.ems.user" />
+	
+	<mvc:annotation-driven />
+
+	<jpa:repositories base-package="com.ems.user.dao.repository" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${ems.app.db.driverClass}" />
+		<property name="jdbcUrl" value="${ems.app.db.jdbcUrl}" />
+		<property name="user" value="${ems.app.db.user}" />
+		<property name="password" value="${ems.app.db.password}" />
+		<property name="initialPoolSize" value="${ems.app.db.initialPoolSize}" />
+		<property name="maxPoolSize" value="${ems.app.db.maxPoolSize}" />
+		<property name="minPoolSize" value="${ems.app.db.minPoolSize}" />
+		<property name="acquireIncrement" value="${ems.app.db.acquireIncrement}" />
+		<property name="acquireRetryAttempts" value="${ems.app.db.acquireRetryAttempts}" />
+		<property name="maxStatements" value="${ems.app.db.maxStatements}" />
+		<property name="idleConnectionTestPeriod" value="${ems.app.db.idleConnectionTestPeriod}" />
+		<!-- <property name="initialPoolSize" value="2" />
+		<property name="maxPoolSize" value="10" />
+		<property name="minPoolSize" value="2" />
+		<property name="acquireIncrement" value="5" />
+		<property name="acquireRetryAttempts" value="5" />
+		<property name="maxStatements" value="50" />
+		<property name="idleConnectionTestPeriod" value="60" /> -->
+	</bean>
+
+	<!-- Transaction Manager -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="true" />
+		<property name="generateDdl" value="false" />
+		<property name="database" value="${ems.app.db.database}" />
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<!-- spring based scanning for entity classes -->
+		<property name="packagesToScan" value="com.ems.user.dao" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+</beans>

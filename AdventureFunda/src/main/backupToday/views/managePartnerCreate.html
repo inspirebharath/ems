@@ -1,0 +1,260 @@
+<div class="adminPageContainer" >
+<div id="page-wrapper" >
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> Partners Management </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+<p class="help-block"></p>
+            <div class="row">
+                 <form novalidate class="partnerCreateForm">
+                <div class="col-lg-12">
+                    <div class="panel-group" id="accordion" role="tablist"
+                        aria-multiselectable="true">
+                        <div class="panel panel-default panel-gray">
+                        <input type="hidden" id="serviceUrl" ng-model="webServiceUrl" value="webServiceUrl" />
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="javascript:" aria-expanded="true"
+                                        aria-controls="basicDetails" ng-click="isOpenBasic = !isOpenBasic" > Basic Details </a>
+                                </h4>
+                            </div>
+                            <div id="basicDetails" class="panel-collapse collapse in"
+                                role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenBasic" >
+                            <div class="panel-body">
+                            <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>User name</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerUserName" required >
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Email Id</label>
+                                            <input class="form-control" type="email" ng-model="$parent.partnerEmailId" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerFirstName" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerLastName" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Mobile No</label>
+                                            <input class="form-control" type="number" ng-model="$parent.partnerMobileNo" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Alternate No</label>
+                                            <input class="form-control" type="number" ng-model="$parent.partnerAlterNo" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerGender" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>DOB</label>
+<!--                                            <input class="form-control" type="text" ng-model="userEmailAdmin" >-->
+                                            <datepicker date-format="dd/MM/yyyy"> <input
+					ng-model="$parent.partnerDOB" type="text" class="inputWidth" /> </datepicker>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>City</label>
+<!--                                            <input class="form-control" type="text" ng-model="userEmailAdmin" >-->
+                                            <select class="inputWidth" ng-model="$parent.partnerCity"><option>Bengaluru</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>State</label>
+<!--                                                <input class="form-control" type="text" ng-model="userEmailAdmin" >-->
+                                            <select class="inputWidth" ng-model="$parent.partnerState"><option>Karnataka</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Country</label>
+<!--                                            <input class="form-control" type="text" ng-model="userEmailAdmin" >-->
+                                            <select class="inputWidth" ng-model="$parent.partnerCountry"><option>India</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div><!-- /.row -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                    </div>
+                    <div class="panel-group" id="accordion" role="tablist"
+                        aria-multiselectable="true">
+                        <div class="panel panel-default panel-gray">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="javascript:" aria-expanded="true"
+                                        aria-controls="basicDetails" ng-click="isOpenBusiness = !isOpenBusiness" > Business Details </a>
+                                </h4>
+                            </div>
+                            <div id="basicDetails" class="panel-collapse collapse in"
+                                role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenBusiness" >
+                            <div class="panel-body">
+                            <div class="row">
+                                
+                                <div class="col-lg-4">
+                                    <label>Partner Type</label>
+                                        <div class="form-group">
+                                            <label class="radio-inline"><input type="radio" ng-model="$parent.partnerType" value="Individual" name="optradio">Individual</label>
+                                            <label class="radio-inline"><input type="radio" ng-model="$parent.partnerType" value="Organization"  name="optradio">Organization</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Organization Name</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerOrgName" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Partner Description</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerMerchantDesc" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Website</label>
+                                            <input class="form-control" type="text" ng-model="$parent.partnerWebsite" >
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4" >
+                                        <div class="form-group">
+                                            <label>Passport</label>
+                                            <!-- <input type="file" name="passportFile" file-upload="$parent.passportFile" ng-model = "$parent.passportFile" data-entityType="partner" data-uploadFor="passport-photocopy"/> -->
+                                            <input type="file" name="passportFile" file-upload data-entityType="PARTNERS" ng-model="$parent.passportFile" data-entityOperation="create" data-imageType="PASSPORT_PHOTOCOPIES" />
+<!--                                             <button ng-click = "uploadFile()">upload File</button>-->
+                                        </div>
+                                    </div>
+                                
+                                 	<div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Photo</label>
+                                           <!-- <input name="partnerPhotoFile" type="file" file-model = "$parent.partnerPhoto" /> -->
+                                           <input type="file" name="partnerPhotoFile" file-upload data-entityType="PARTNERS" ng-model="$parent.partnerPhotoFile" data-entityOperation="create" data-imageType="INDIVIDUAL_PHOTOS" />
+<!--                                             <button ng-click = "uploadFile()">upload File</button>-->
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Organization Logo</label>
+                                           <!-- <input name="orgLogoFile" type="file" file-model = "$parent.partnerOrgLogo" /> -->
+                                           <input type="file" name="orgLogoFile" file-upload data-entityType="PARTNERS" ng-model="$parent.orgLogoFile" data-entityOperation="create" data-imageType="ORGANIZATION_LOGOS" />
+<!--                                             <button ng-click = "uploadFile()">upload File</button>-->
+                                        </div>
+                                    </div>
+                                
+                                </div><!-- /.row -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group" id="accordion" role="tablist"
+		aria-multiselectable="true">
+		<div class="panel panel-default panel-gray">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion"
+						href="javascript:" aria-expanded="true"
+						aria-controls="basicDetails" ng-click="isOpenothers = !isOpenothers" > Experience Summary </a>
+				</h4>
+			</div>
+			<div id="basicDetails" class="panel-collapse collapse in"
+				role="tabpanel" aria-labelledby="headingOne" ng-if="isOpenothers" >
+			<div class="panel-body">
+			<div class="row rowcontrols">
+
+			<div class="col-sm-12">
+                <label translate>{{'MPartnerMountains'}}</label>
+                <textarea  class="form-control" ng-model="$parent.partnerMountains" rows="3" ></textarea>
+			</div>
+
+			<div class="col-sm-12">
+                <label translate>{{'MPartnerLeaders'}}</label>
+                <textarea  class="form-control" ng-model="$parent.partnerLeaders" rows="3" ></textarea>
+			</div>
+
+			<div class="col-sm-12">
+                <label translate>{{'MPartnerFacilities'}}</label>
+                <textarea  class="form-control" ng-model="$parent.partnerFacilities"  rows="3" ></textarea>
+<!--				<input type="text" class="inputWidth" ng-model="PartFacilities" />-->
+			</div>
+
+			<div class="col-sm-12">
+                <label translate>{{'MPartnerSuccessStry'}}</label>
+                <textarea  class="form-control" ng-model="$parent.partnerSuccessStry" rows="3" ></textarea>
+<!--				<input type="text" class="inputWidth" ng-model="PartSuccessStry" />-->
+			</div>
+		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+                    <div class="row">
+                                    <div class="col-sm-offset-8 col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="reset" class="btn btn-warning form-control">Reset</button>
+                                            </div>
+                                            <div  class="col-md-6">
+                                                <button type="submit" class="btn btn-success form-control" ng-click="createPartners()"  >Create</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+                </form>
+            </div>
+            <!-- /.row -->
+		
+	</div>
+</div>

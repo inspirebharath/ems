@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="loginModule">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Admin Home</title>
+<link rel="stylesheet" href="assets/libs/Bootstrap/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container" ng-controller="loginController">
+		<div id="wait" class="overlay">
+			<div
+				style="width: 70px; height: 90px; position: absolute; top: 50%; left: 50%; padding: 2px;">
+				<img src='assets/images/loader.gif' width="64" height="64" /><br>Loading..
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<form  class="form-horizontal">
+					<div class="get-in-touch">
+						<h3 class="text-center" translate>{{'loginRegBtn'}}</h3>
+						<hr />
+						<div class="col-sm-12">
+							<p class="messageBlock"></p>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" translate>{{'loginUserName'}}</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" placeholder="" ng-model="userName" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" translate>{{'loginEmail'}}</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control"
+									placeholder="someone@example.com" ng-model="emailId" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" translate>{{'loginPwd'}}</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" placeholder="**************" ng-model="password" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Confirm Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" placeholder="**************" ng-model="confirmPwd" >
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10 registerBtnRight">
+								<button ng-click="authenticateUser()" class="btn btn-danger btn-sm " translate>{{'loginRegBtn'}}</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="assets/libs/Angular/angular.min.js"></script>
+	<script src="assets/libs/Angular/angular-route.min.js"></script>
+	<script src="assets/libs/JQuery/jquery.min.js"></script>
+	<script src="assets/libs/Bootstrap/bootstrap.min.js"></script>
+	<script src="assets/libs/Angular/translate.js"></script>
+	<script src="services/translations.js"></script>
+	<script src="login.js"></script>
+	<style>
+		.overlay {
+		/*background-image:url('assets/images/bg.jpg');
+			background-repeat:repeat;*/
+		background-color: #ccc;
+		display: none;
+		z-index: 500;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		filter: alpha(opacity = 50);
+		-moz-opacity: 0.5;
+		-khtml-opacity: 0.5;
+		opacity: 0.5;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.messageBlock {
+		text-align: center;
+		padding-bottom: 8px;
+		font-size: 16px;
+	}
+	</style>
+	<script type="text/javascript">
+		(function CallMe() {
+			 
+			$(document).ajaxStart(function(){
+		        $("#wait").css("display", "block");
+		    });
+		    $(document).ajaxComplete(function(){
+		         $("#wait").css("display", "none");
+		    });
+			$.ajax({
+				  url: "http://localhost:8090/AdventureFunda/ems/adminService/sadmin",
+				  headers: {'Content-Type':'application/json'},
+				  method: 'GET',
+				  dataType: 'json',
+				}).done(function(response) {
+					console.log(response);
+					$('.messageBlock').text(response.messageDesc);
+				}).fail(function() {
+				    console.log( "error" );
+				}).always(function() {
+					console.log( "complete" );
+				});
+		})();
+	</script>
+</body>
+</html>

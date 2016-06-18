@@ -1,0 +1,298 @@
+<div class="adminPageContainer" ng-init="loadAdminData()">
+<div id="page-wrapper" >
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> Admin Management </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+<p class="help-block"></p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default panel-gray">
+                        <div class="panel-heading">
+                            Search Admin
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>User name</label>
+                                            <input class="form-control" type="text" ng-model="userName" >
+<!--                                             <p class="help-block">Merchant Identification Number</p> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Email Id</label>
+                                            <input class="form-control" type="text" ng-model="emailId">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" ng-model="fName" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" type="text" ng-model="lName" >
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Mobile No</label>
+                                            <input class="form-control" type="text" ng-model="mobileNo" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" ng-model="status">
+                                                <option>Created</option>
+                                                <option>Active</option>
+                                                <option>Inactive</option>
+                                                <option style="display:none;">Deleted</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div><!-- /.row -->
+
+
+                                <div class="row">
+                                    <div class="col-sm-offset-8 col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="reset" class="btn btn-warning form-control">Reset</button>
+                                            </div>
+                                            <div  class="col-md-6">
+                                                <button type="submit" class="btn btn-success form-control" ng-click="searchAdminData('freshSearch')" >Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- from -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+    <div class="row" > 
+                <div class="col-lg-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                           
+                            <div class="row">
+                                <div class="col-sm-6 pull-left">
+                                 Admin Search Results
+                                </div>
+                                <div class="col-sm-2 ">
+                                <div>    
+                                    <span>Total</span>
+                                    <span>{{$scope.noOfRecords}}</span>
+                                </div>
+                                </div>
+                                <div class="col-sm-3 ">
+                                <span>Items Per Page</span>
+                                <select ng-model="adminPageSize" ng-change="savePageIndex()" >
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                        <option>40</option>
+                                        <option>50</option>
+                                </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover table-search" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>UserName</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email Id</th>
+                                            <th>Phone Number</th>
+                                            <th>Last Login</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="item in adminData | itemsPerPage: usersPerPage " 
+                                        total-items="totalUsers" current-page="pagination.current" >
+                                            <td><label>{{item.userName}}</label></td>
+                                            <td><label>{{item.firstName}}</label></td>
+                                            <td><label>{{item.lastName}}</label></td>
+                                            <td><label>{{item.emailId}}</label></td>
+                                            <td><label>{{item.mobileNo}}</label></td>
+                                            <td><label>{{item.lastLoginDateTime}}</label></td>
+                                            <td><label>{{item.status}}</label></td>
+
+<!--                                             <td class="center btn-"> -->
+<!--                                                 <p ng-if="admin.status == 'active'" > -->
+<!--                                                 <i class="fa fa-dot-circle-o fa-active"></i> Active -->
+<!--                                                 </p> -->
+                                                
+<!--                                                 <p ng-if="admin.status == 'inactive'" > -->
+<!--                                                 <i class="fa fa-dot-circle-o fa-suspended"></i> Inactive -->
+<!--                                                 </p> -->
+                                            
+<!--                                             </td> -->
+                                            <td class="center">
+                                                <div class="btn-group">
+<!--                                                      <button class="btn btn-info btn-xs"><i class="fa fa-pencil"> </i></button> -->
+                                                     <button class="btn btn-info btn-xs" ng-click="showEditDialog(item.id)" ><i class="fa fa-pencil"> </i></button>
+                                                     <button class="btn btn-warning btn-xs"  ng-click="showStatusDialog()" ><i class="fa fa-circle"> </i></button>
+                                                     <button class="btn btn-danger btn-xs"  ng-click="showDeleteDialog()" ><i class="fa fa-trash"> </i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" ></dir-pagination-controls>
+                            </div>
+                            <!-- /.table-responsive -->
+                            
+                            <nav>
+                              <ul id="pageNavPosition" class="pagination pull-right">
+<!--
+                                <li>
+                                  <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                  </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                  <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                                </li>
+-->
+                              </ul>
+                            </nav>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+	</div>
+	<div id="updateAdminModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Admin Data</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;height: 20vh;" >
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>User Name</label> <input class="form-control" type="text"
+								ng-model="adminItem[0].userName"  disabled="disabled" >
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>First Name</label> <input class="form-control" type="text"
+								ng-model="adminItem[0].firstName">
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Last Name</label> <input class="form-control" type="text"
+								ng-model="adminItem[0].lastName">
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Email Id</label> <input class="form-control" type="text"
+								ng-model="adminItem[0].emailId">
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Phone Number</label> <input class="form-control" type="text"
+								ng-model="adminItem[0].mobileNo">
+						</div>
+					</div>
+
+				</div>
+<!--       <div class="modal-footer"> -->
+        <button type="button" class="btn btn-default" ng-click="updateAdminData()" >Update</button>
+<!--       </div> -->
+    </div>
+
+  </div>
+</div>
+<div id="statusChangeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Admin Status</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;" >
+      	 <input type="checkbox" checked data-toggle="toggle" >
+					<div class="col-sm-12">
+						<label translate>Reason</label>
+						<textarea class="form-control" ng-model="statusChangeRsn"
+							rows="3"></textarea>
+					</div>
+
+				</div>
+<!--       <div class="modal-footer"> -->
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Update</button>
+<!--       </div> -->
+    </div>
+
+  </div>
+</div>
+<div id="deleteAdminModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete Admin</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;" >
+					Are you sure you want to delete?
+
+				</div>
+<!--       <div class="modal-footer"> -->
+        <button type="button" class="btn btn-default" ng-click="deleteAdmin()" >Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >No</button>
+<!--       </div> -->
+    </div>
+
+  </div>
+</div>
+</div>
